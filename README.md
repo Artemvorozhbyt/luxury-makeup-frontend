@@ -59,35 +59,6 @@ Supported languages:
 
 ---
 
-📁 Project Structure
-
-├── css/
-│   ├── sections.css
-│   ├── mobile.menu.css
-│   ├── gallery.css
-│   ├── variables.css
-│   ├── base.css
-│   ├── layout.css
-│   ├── components.css
-│   ├── responsive.css
-│
-├── js/
-│   ├── auth.js
-│   ├── booking.js
-│   ├── config.js
-│   ├── gallery.js
-│   ├── lang.js
-│   ├── reviews.js
-│   ├── theme.js
-│   ├── ui.js
-│   ├── main.js
-│
-├── index.html
-├── gallery.html
-├── login.html
-
----
-
 🚀 Deployment
 
 Hosted on **Netlify**
