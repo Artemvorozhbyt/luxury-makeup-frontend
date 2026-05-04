@@ -1,0 +1,886 @@
+/* === ABOUT === */
+#about {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+}
+
+.about-left {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, #f5ede3, #efe3d3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark .about-left {
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+}
+
+.about-number {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    font-size: clamp(80px, 15vw, 140px);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    line-height: 1;
+}
+
+body.dark .about-number {
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.about-left h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(72px, 6vw, 96px);
+    color: var(--gold);
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.about-left p {
+    max-width: 500px;
+    font-size: clamp(22px, 1.9vw, 28px);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+body.dark .about-left p {
+    color: #ccc;
+}
+
+.about-script {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(34px, 3vw, 46px);
+    color: var(--gold);
+    margin: 20px 0;
+}
+
+.about-btn {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--text-light);
+    letter-spacing: 3px;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: transform var(--transition-base);
+}
+
+body.dark .about-btn {
+    color: var(--text-dark);
+}
+
+.about-btn:hover {
+    transform: translateX(5px);
+    color: var(--gold);
+}
+
+.about-right {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    transition: transform var(--transition-slow);
+}
+
+.about-right:hover img {
+    transform: scale(1.03);
+}
+
+.about-right::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent);
+    pointer-events: none;
+}
+
+/* === SERVICES === */
+#services {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service {
+    border: 1px solid transparent;
+    transition: .35s ease;
+    cursor: pointer;
+}
+
+.service:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+}
+
+.service h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* === BOOKING === */
+#booking {
+    padding-top: 80px;
+}
+
+.booking-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#adminPanel {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+}
+
+body.dark #adminPanel {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#bookingsList>div {
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-soft);
+}
+
+body.dark #bookingsList>div {
+    background: var(--card-dark);
+}
+
+/* === REVIEWS === */
+#reviews {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.reviews-summary {
+    margin-bottom: 40px;
+}
+
+.avg-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.avg-rating span:first-child {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.avg-rating .stars {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.reviews {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.review {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+body.dark .review {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.review:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(197, 157, 95, 0.25);
+}
+
+.review .stars {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.review p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.review b {
+    color: var(--gold);
+}
+
+.review-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.rating-select {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.rating-select span {
+    font-size: 32px;
+    cursor: pointer;
+    color: #ddd;
+    transition: all var(--transition-fast);
+}
+
+.rating-select span:hover,
+.rating-select span.active {
+    color: var(--gold);
+    transform: scale(1.2);
+}
+
+/* === CONTACT === */
+.lux-contact {
+    max-width: 1360px;
+    padding: 40px 20px;
+}
+
+.lux-shell {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    border-radius: 34px;
+    background: #f7f4ef;
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, .06);
+}
+
+body.dark .lux-shell {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+
+    background: linear-gradient(135deg,
+            #171513 0%,
+            #1d1a17 45%,
+            #211d18 100%);
+
+    border: 1px solid rgba(201, 166, 97, .16);
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, .55),
+        inset 0 1px 0 rgba(255, 255, 255, .03);
+
+    border-radius: 34px;
+}
+.lux-left {
+    padding: 42px 42px 34px;
+    border-right: 1px solid rgba(197, 157, 95, .22);
+    position: relative;
+}
+body.dark .lux-left {
+    background: linear-gradient(180deg,
+            #121212,
+            #191715);
+
+    border-right: 1px solid rgba(201, 166, 97, .14);
+
+    box-shadow:
+        inset -1px 0 0 rgba(255, 215, 150, .04);
+}
+.monogram-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.monogram {
+    font-size: 46px;
+}
+
+.micro-title {
+    text-align: center;
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 35px;
+}
+
+.lux-title {
+    text-align: center;
+    font-size: 64px;
+    line-height: 46px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.lux-title span {
+    color: var(--gold);
+}
+
+.lux-sub {
+    text-align: center;
+    font-style: italic;
+    color: #9f978d;
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+.divider {
+    width: 160px;
+    height: 1px;
+    background: rgba(197, 157, 95, .3);
+    margin: 24px auto;
+}
+
+.lux-item {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-bottom: 34px;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #2e2a26;
+}
+
+.lux-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    /* НЕ білі іконки */
+    color: #b88d45;
+
+    background: linear-gradient(145deg,
+            #fffdf8,
+            #f1e3c7);
+
+    border: 1px solid rgba(197, 157, 95, .18);
+
+    box-shadow:
+        inset 0 2px 6px rgba(255, 255, 255, .8),
+        0 8px 20px rgba(197, 157, 95, .14);
+
+    transition: .35s ease;
+}
+
+/* різні акценти */
+.lux-item:nth-child(1) .lux-icon {
+    color: #c59642;
+}
+
+.lux-item:nth-child(2) .lux-icon {
+    color: #bf8a94;
+}
+
+.lux-item:nth-child(3) .lux-icon {
+    color: #7c9b7e;
+}
+
+.lux-item:hover .lux-icon {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow:
+        0 12px 30px rgba(197, 157, 95, .22);
+}
+
+/* email не тягнеться */
+.lux-item a {
+    color: inherit;
+    text-decoration: none;
+}
+.lux-item:nth-child(2) {
+    margin-bottom: 42px;
+}
+
+/* phone — champagne gold */
+.lux-item:nth-of-type(1) .lux-icon {
+    background: linear-gradient(135deg,
+            #f2dfb0,
+            #c89d54);
+}
+
+/* email — blush rose */
+.lux-item:nth-of-type(2) .lux-icon {
+    background: linear-gradient(135deg,
+            #e8c7c8,
+            #c89195);
+}
+
+/* location — soft emerald */
+.lux-item:nth-of-type(3) .lux-icon {
+    background: linear-gradient(135deg,
+            #bfd8c1,
+            #7aa77e);
+}
+
+.lux-item:hover .lux-icon {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.lux-icon:hover {
+    transform: scale(1.06);
+    box-shadow:
+        0 8px 24px rgba(197, 157, 95, .15);
+}
+
+.social-lux {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 30px 0;
+}
+
+.social-lux a {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    text-decoration: none;
+
+    color: white;
+
+    transition: .35s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+/* Instagram */
+.social-lux a:nth-child(1) {
+    background: linear-gradient(135deg,
+            #f9ce34,
+            #ee2a7b,
+            #6228d7);
+}
+
+/* WhatsApp */
+.social-lux a:nth-child(2) {
+    background: linear-gradient(135deg,
+            #48c857,
+            #20b038);
+}
+
+/* Telegram */
+.social-lux a:nth-child(3) {
+    background: linear-gradient(135deg,
+            #37aee2,
+            #229ED9);
+}
+
+.social-lux a:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, .14);
+}
+
+.hours {
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.script-note {
+    font-family: "Great Vibes";
+    font-size: 38px;
+    color: var(--gold);
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+.small-note {
+    font-size: 13px;
+    color: #9f978d;
+    line-height: 1.5;
+}
+
+.lux-map {
+    position: relative;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    /* ключове */
+    justify-content: center;
+
+    padding-top: 0;
+    /* як на другому скріні */
+}
+body.dark .lux-map {
+    background: #1c1815;
+    padding: 28px;
+}
+body.dark .lux-map iframe {
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .45),
+        0 0 0 1px rgba(201, 166, 97, .10);
+}
+
+
+.lux-map iframe {
+    width: 100%;
+    height: 820px;
+    min-height: 680px;
+    border: 0;
+    display: block;
+}
+
+.map-badge {
+    position: absolute;
+    right: 35px;
+    top: 35px;
+    z-index: 10;
+    background: #f8f5ee;
+    padding: 16px 24px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.map-badge em {
+    font-family: "Cormorant Garamond";
+    font-size: 24px;
+    font-style: italic;
+    display: block;
+}
+
+.lux-footer {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
+
+@media(max-width:1100px) {
+
+    .lux-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .lux-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(197, 157, 95, .2);
+    }
+
+    .lux-title {
+        font-size: 58px;
+    }
+
+    .lux-map iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+    }
+
+}
+.socials a {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg,
+            #d6b16d,
+            #b58c45);
+
+    box-shadow: 0 0 25px rgba(212, 180, 107, .25);
+}
+
+.socials a:hover {
+    transform: translateY(-6px) scale(1.06);
+}
+.contact-info {
+    border-right: 1px solid rgba(197, 157, 95, .25);
+}
+/* social icons */
+
+.contact>div {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.contact a {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, .75),
+            rgba(197, 157, 95, .22));
+
+    border: 1px solid rgba(197, 157, 95, .35);
+
+    color: var(--gold);
+    font-size: 30px;
+
+    box-shadow:
+        0 12px 35px rgba(197, 157, 95, .18),
+        inset 0 0 14px rgba(255, 255, 255, .35);
+
+    transition: .35s ease;
+}
+
+.contact a:hover {
+    transform: translateY(-6px) scale(1.12) rotate(4deg);
+    background: linear-gradient(135deg,
+            var(--gold),
+            var(--gold-soft));
+    color: white;
+    box-shadow:
+        0 20px 45px rgba(197, 157, 95, .35);
+}
+.contact-link {
+    color: inherit;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.contact-link:hover {
+    color: var(--gold);
+}
+
+/* === MAP === */
+iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    display: block;
+    border: 0;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
+}
+.contact iframe {
+    width: 100%;
+    max-width: 950px;
+    height: 520px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .08),
+        0 0 30px rgba(197, 157, 95, .15);
+}
+/* ===== DARK MODE FIX CONTACT ===== */
+
+body.dark .lux-contact,
+body.dark .lux-shell,
+body.dark .lux-left {
+    background: #161616;
+}
+
+body.dark .lux-left {
+    border-right: 1px solid rgba(197, 157, 95, .18);
+}
+
+/* subtitle under Contact */
+body.dark .lux-sub {
+    color: #cfc7bc;
+    opacity: .85;
+}
+
+/* dividers */
+body.dark .divider {
+    background: rgba(197, 157, 95, .25);
+}
+
+/* hours row */
+body.dark .hours {
+    color: #d8d2c8;
+}
+
+/* bottom note */
+body.dark .small-note {
+    color: #bdb5aa;
+    opacity: 1;
+}
+
+/* appointment script */
+body.dark .script-note {
+    color: #d7b06a;
+}
+
+/* badge on map */
+body.dark .map-badge {
+    background: #1f1f1f;
+    color: #ddd2c3;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+body.dark .map-badge em {
+    color: #e4d3b2;
+}
+
+/* footer text */
+body.dark .lux-footer {
+    color: #c9a86c;
+}
+body.dark .lux-item {
+    color: #f2eadc;
+}
+
+body.dark .lux-item a {
+    color: #f2eadc;
+}
+
+body.dark .contact-link {
+    color: #f2eadc;
+}
+
+body.dark .contact-link:hover {
+    color: #d7b06a;
+}
+@media (max-width:768px) {
+
+    .lux-contact {
+        padding: 35px 16px;
+    }
+
+    .lux-shell {
+        display: block;
+        border-radius: 28px;
+        overflow: hidden;
+    }
+
+    /* ліва колонка стає повноцінним блоком */
+    .lux-left {
+        padding: 42px 26px;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    /* прибираємо важкі декоративні речі */
+    .monogram-wrap,
+    .map-badge,
+    .lux-footer {
+        display: none;
+    }
+
+    .micro-title {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+    }
+
+    .lux-title {
+        font-size: 54px;
+        line-height: 1;
+        margin-bottom: 14px;
+    }
+    body.dark .lux-shell {
+        display: block;
+    }
+
+    .lux-sub {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .divider {
+        width: 160px;
+        margin: 24px auto;
+    }
+
+    .lux-item {
+        font-size: 18px;
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .lux-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        font-size: 18px;
+    }
+
+    .social-lux {
+        gap: 18px;
+        margin: 28px 0;
+    }
+
+    .social-lux a {
+        width: 50px;
+        height: 50px;
+    }
+
+    .hours {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .script-note {
+        text-align: center;
+        font-size: 38px;
+    }
+
+    .small-note {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* карта окремим блоком з норм висотою */
+    .lux-map {
+        padding: 0;
+        background: transparent;
+    }
+
+    .lux-map iframe {
+        min-height: 360px !important;
+        height: 360px !important;
+        border-radius: 22px;
+    }
+}
+.selected-glow {
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 0 4px rgba(197, 157, 95, .15);
+}

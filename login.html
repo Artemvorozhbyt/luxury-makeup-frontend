@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c59d5f" />
+    <title>Login | Admin</title>
+
+    <link rel="stylesheet" href="css/variables.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        background: radial-gradient(circle at top, #fdf6ee, #f3e7d8);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .login-box {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: var(--gold, #c59d5f);
+        margin-bottom: 30px;
+        font-size: 28px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 16px;
+        margin: 10px 0;
+        border: 1px solid #e5d9c8;
+        border-radius: 12px;
+        font-size: 16px;
+        background: #fdfaf6;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: var(--gold, #c59d5f);
+        box-shadow: 0 0 0 3px rgba(197, 157, 95, 0.15);
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 20px;
+        background: linear-gradient(135deg, #c59d5f, #e0c48c);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(197, 157, 95, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .back-link:hover {
+        color: var(--gold, #c59d5f);
+      }
+
+      .error {
+        color: #e74c3c;
+        text-align: center;
+        margin-top: 15px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-box">
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Увійти</button>
+      </form>
+      <p class="error" id="error"></p>
+      <a href="index.html" class="back-link">← Повернутися на сайт</a>
+    </div>
+
+    <script type="module">
+      import { login } from "./js/auth.js";
+
+      document.getElementById("loginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const errorEl = document.getElementById("error");
+
+        errorEl.style.display = "none";
+
+        const result = await login(email, password);
+
+        if (result.success) {
+          window.location.href = "index.html";
+        } else {
+          errorEl.textContent = "❌ Невірний логін або пароль";
+          errorEl.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

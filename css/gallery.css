@@ -1,0 +1,318 @@
+/* === GALLERY PREVIEW (HOME) === */
+#gallery-preview {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#gallery-preview h2 {
+    font-size: clamp(28px, 5vw, 34px);
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#gallery-preview h2::before,
+#gallery-preview h2::after {
+    content: "";
+    width: clamp(60px, 15vw, 180px);
+    height: 1.5px;
+    background: linear-gradient(to right,
+            transparent,
+            rgba(197, 157, 95, 0.7),
+            rgba(197, 157, 95, 0.95),
+            transparent);
+}
+
+#gallery-preview h2::after {
+    transform: scaleX(-1);
+}
+
+#gallery-preview h2 span {
+    position: relative;
+}
+
+#gallery-preview h2 span::after {
+    content: "༺❦༻";
+    position: absolute;
+    left: 50%;
+    top: 44px;
+    transform: translateX(-50%);
+    font-size: 20px;
+    letter-spacing: 5px;
+    color: rgba(197, 157, 95, 0.68);
+}
+
+/* === SLIDER === */
+.gallery-slider {
+    position: relative;
+    padding: 0 70px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+    border-radius: 38px;
+    padding: 12px;
+    background: linear-gradient(145deg,
+            rgba(197, 157, 95, 0.22),
+            rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(197, 157, 95, 0.35);
+    box-shadow:
+        0 0 35px rgba(197, 157, 95, 0.18),
+        0 0 90px rgba(197, 157, 95, 0.12),
+        inset 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-track img {
+    width: calc(100% / 3);
+    flex: 0 0 calc(100% / 3);
+    padding: 8px;
+    border-radius: 28px;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.slider-track img:hover {
+    transform: scale(1.025);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.22),
+        0 0 30px rgba(197, 157, 95, 0.15);
+}
+
+/* === SLIDER BUTTONS === */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--gold);
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 157, 95, 0.4);
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-base);
+    box-shadow:
+        0 0 25px rgba(197, 157, 95, 0.2),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.slider-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+    color: white;
+    box-shadow:
+        0 0 40px rgba(197, 157, 95, 0.6),
+        0 0 80px rgba(197, 157, 95, 0.3);
+}
+
+.slider-btn.prev {
+    left: 0;
+}
+
+.slider-btn.next {
+    right: 0;
+}
+
+/* === GALLERY LINK === */
+.gallery-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+.gallery-btn::before,
+.gallery-btn::after {
+    content: "";
+    width: 90px;
+    height: 1px;
+    background: rgba(197, 157, 95, 0.45);
+}
+
+.gallery-btn .star {
+    font-size: 26px;
+    text-shadow: 0 0 15px rgba(197, 157, 95, 0.5);
+}
+
+.gallery-btn span:last-child {
+    transition: transform var(--transition-base);
+}
+
+.gallery-btn:hover span:last-child {
+    transform: translateX(8px);
+}
+
+/* === FULL GALLERY PAGE === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-gold);
+}
+
+/* === LIGHTBOX === */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+    padding: 20px;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: var(--border-radius);
+    object-fit: contain;
+}
+
+/* === FLATPICKR CUSTOM === */
+.flatpickr-calendar {
+    background: #f8f3ed;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(197, 157, 95, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    font-family: inherit;
+}
+
+body.dark .flatpickr-calendar {
+    background: #1c1b19;
+    border: 1px solid rgba(197, 157, 95, .35);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .45),
+        0 0 30px rgba(197, 157, 95, .08);
+    color: #f3e7d0;
+}
+body.dark .flatpickr-current-month,
+body.dark .flatpickr-current-month input.cur-year {
+    color: #e8d2a4;
+    font-weight: 600;
+}
+body.dark .flatpickr-weekday {
+    color: #c59d5f;
+    opacity: .9;
+}
+body.dark .flatpickr-day {
+    color: #f4eee3;
+    border-radius: 12px;
+}
+
+/* hover */
+body.dark .flatpickr-day:hover {
+    background: rgba(197, 157, 95, .18);
+    border-color: rgba(197, 157, 95, .4);
+}
+
+/* selected day */
+body.dark .flatpickr-day.selected {
+    background: linear-gradient(135deg, #c59d5f, #e5c988) !important;
+    color: #fff !important;
+    border: none;
+}
+
+/* today */
+body.dark .flatpickr-day.today {
+    border: 1px solid #c59d5f;
+    color: #e8d2a4;
+}
+
+/* disabled dates */
+body.dark .flatpickr-day.flatpickr-disabled {
+    color: #5f5a52;
+    opacity: .45;
+}
+
+/* arrows */
+body.dark .flatpickr-prev-month svg,
+body.dark .flatpickr-next-month svg {
+    fill: #c59d5f;
+}
+
+/* dropdown month/year */
+body.dark .flatpickr-monthDropdown-months,
+body.dark .numInputWrapper input {
+    color: #f3e7d0;
+    background: transparent;
+}
+
+.flatpickr-day {
+    border-radius: 10px;
+    transition: all var(--transition-fast);
+}
+
+.flatpickr-day:hover {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.flatpickr-day.selected {
+    background: #4caf50 !important;
+    color: white;
+    border-color: #4caf50 !important;
+}
+
+.flatpickr-day.disabled {
+    opacity: 0.3;
+}
+
+.day-available {
+    background: #e8f5e9 !important;
+    color: #2e7d32;
+}
+
+.day-few {
+    background: #fff3cd !important;
+    color: #856404;
+}
+
+.day-full {
+    background: #fdecea !important;
+    color: #c62828;
+    pointer-events: none;
+}

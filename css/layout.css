@@ -1,0 +1,594 @@
+/* === HERO === */
+.hero {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0a0a0a;
+    /* перекриває світлий фон body */
+}
+.hero {
+    filter: sepia(10%) brightness(1) contrast(1);
+}
+
+/* Якісний фон з теплим світлом */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+    z-index: 0;
+    filter: brightness(0.75) contrast(1.1);
+}
+
+
+/* затемнення + світлові плями */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)
+    );
+    z-index: 1;
+}
+
+/* Зерно (film grain) поверх */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    mix-blend-mode: soft-light;
+    z-index: 3;
+    pointer-events: none;
+    display: none;
+}
+
+/* Пил / дрібні золоті частинки */
+.hero-dust {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/gold-dust.png");
+    opacity: 0.16;
+    mix-blend-mode: screen;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Тепле світло зліва */
+.hero-light-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 40%,
+                rgba(255, 220, 150, 0.15),
+                transparent 70%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 4;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Верхній малий текст */
+.hero-top {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 25px;
+    /* місце під лінію */
+
+    letter-spacing: 8px;
+    font-size: clamp(28px, 4vw, 60px);
+
+    font-family: "Playfair Display", serif;
+
+    background: linear-gradient(to bottom,
+            #fff8e6,
+            #f3d89c 40%,
+            #d4af6b 70%,
+            #b8964d);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ЛІВА ЛІНІЯ */
+.hero-top::before {
+    content: "";
+    position: absolute;
+    left: 100px;
+    bottom: 8px;
+    width: 150px;
+    height: 1.5px;
+
+    background: linear-gradient(to right,
+            transparent,
+            var(--gold));
+
+    opacity: 0.8;
+}
+
+/* ПРАВА ЛІНІЯ */
+.hero-top::after {
+    content: "";
+    position: absolute;
+    right: 100px;
+    bottom: 8px;
+    width: 150px;
+    height: 1.5px;
+
+    background: linear-gradient(to left,
+            transparent,
+            var(--gold));
+
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .hero-top::before {
+        left: 40px;
+        /* піджали ближче */
+        width: 90px;
+        /* коротші лінії */
+    }
+
+    .hero-top::after {
+        right: 40px;
+        width: 90px;
+    }
+
+    .hero-top .diamond {
+        transform: translate(-50%, 8px);
+        /* трохи нижче */
+    }
+}
+/* ✦ ДІАМАНД */
+.hero-top::marker {
+    content: "";
+}
+.hero-top {
+    text-align: center;
+}
+
+.hero-top .diamond {
+    position: absolute;
+    left: 50.5%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    
+
+    font-size: 16px;
+    color: var(--gold);
+
+    text-shadow:
+        0 0 10px rgba(197, 157, 95, 0.6),
+        0 0 20px rgba(197, 157, 95, 0.3);
+}
+
+/* Основний титул */
+.hero-title {
+    
+    font-family: "Playfair Display", serif;
+    font-size: clamp(70px, 10vw, 140px);
+    letter-spacing: 4px;
+
+    background-image: linear-gradient(to bottom,
+            #fffdf8,
+            #f3e6c9 40%,
+            #d6be8a 60%,
+            #b89c64);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    
+
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+}
+.hero-title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent 40%,
+            rgba(255, 255, 255, 0.25) 50%,
+            transparent 60%);
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+}
+
+/* Курсивна лінія під назвою */
+.hero-script {
+    font-family: "Great Vibes", cursive;
+    font-size: 28px;
+    letter-spacing: 1px;
+
+    background: linear-gradient(to right,
+            #e7c98a,
+            #f5e3b0,
+            #caa85a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(255, 210, 120, 0.2);
+
+    opacity: 0.9;
+    transform: translateY(-5px);
+}
+
+/* Локація */
+.hero-location {
+    letter-spacing: 3px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@keyframes moveBorder {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 200% 50%;
+    }
+}
+.hero-btn {
+    position: relative;
+    padding: 16px 40px;
+    border-radius: 40px;
+    background: rgba(10, 8, 5, 0.85);
+    color: var(--gold);
+    border: 1px solid rgba(255, 190, 120, 0.4);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+}
+
+
+.hero-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+
+    background: linear-gradient(90deg,
+            transparent,
+            #ffd27f,
+            #fff0b3,
+            #ffd27f,
+            transparent);
+
+    background-size: 200% 100%;
+    animation: moveBorder 2.5s linear infinite;
+}
+.hero-btn span {
+    position: relative;
+    z-index: 3;
+}
+
+/* Світловий спот під кнопкою */
+.hero-btn::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: rgba(5, 4, 2, 0.95);
+    z-index: 1;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow:
+        0 0 40px rgba(197, 157, 95, 0.6),
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Нижні теги */
+.hero-tags {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    gap: 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    z-index: 4;
+}
+.hero-btn::before,
+.hero-btn::after {
+    pointer-events: none;
+}
+
+/* === Анімації === */
+@keyframes zoomBg {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* === HERO HEADER === */
+.hero-header {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 10;
+}
+
+/* === LOGO === */
+.logo {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo img {
+    width: 90px;
+    /* підбери під свій дизайн */
+    height: auto;
+    display: block;
+}
+@media (max-width: 768px) {
+    .hero-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .logo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+
+    .logo img {
+        width: 60px;
+    }
+}
+
+/* === CENTER NAV === */
+.nav-center {
+    display: flex;
+    gap: 40px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-center a {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* hover */
+.nav-center a:hover {
+    color: var(--gold);
+}
+
+/* ACTIVE (як HOME на макеті) */
+.nav-center a.active {
+    color: var(--gold);
+}
+.nav-center a:hover::after {
+    width: 100%;
+}
+.nav-center a.active {
+    color: var(--gold);
+}
+
+
+.nav-center a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* === Навігація (desktop) === */
+nav:not(#mobileMenu) {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    display: flex;
+    gap: 30px;
+    padding: 12px 25px;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all var(--transition-base);
+}
+
+nav:not(#mobileMenu).show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+nav:not(#mobileMenu).scrolled {
+    padding: 8px 20px;
+    background: rgba(10, 10, 10, 0.8);
+}
+
+nav:not(#mobileMenu) a {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+    transition: color var(--transition-base);
+}
+
+nav:not(#mobileMenu) a:hover {
+    color: var(--gold);
+}
+
+nav:not(#mobileMenu) a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width var(--transition-base);
+}
+
+nav:not(#mobileMenu) a:hover::after {
+    width: 100%;
+}
+
+/* === ADMIN BUTTON === */
+.admin-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--gold), #d6b77a);
+    color: white;
+    padding: 12px 18px;
+    border-radius: var(--border-radius-lg);
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0.7;
+    transition: all var(--transition-base);
+    z-index: 100;
+}
+
+.admin-btn:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* === LOGOUT BTN === */
+#logoutBtn {
+    position: fixed;
+    bottom: 80px;
+    left: 15px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+    color: white;
+    padding: 10px 16px;
+    font-size: 13px;
+    border-radius: var(--border-radius);
+    z-index: 10001;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform var(--transition-base);
+    display: none;
+}
+
+#logoutBtn:hover {
+    transform: scale(1.05);
+}
+
+/* === NAV visibility rules === */
+@media (min-width:769px) {
+    nav:not(#mobileMenu) {
+        display: none !important;
+    }
+}
+
+/* === MOBILE HERO === */
+@media (max-width:768px) {
+    .hero {
+        min-height: 100vh;
+        height: 100dvh;
+        padding-top: env(safe-area-inset-top);
+    }
+
+    .hero-overlay {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+}
+
+/* === ABOUT (mobile) === */
+@media (max-width:768px) {
+    .about-split {
+        min-height: auto;
+        display: block;
+    }
+
+    .about-right {
+        display: none;
+    }
+
+    #about {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .about-left {
+        width: 100%;
+    }
+}

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#c59d5f" />
+    <meta name="description" content="Anna Rakhno - Professional Makeup Artist in Katowice" />
+
+    <title>Anna Rakhno | Makeup Artist</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/mobile-menu.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <!-- Burger Menu -->
+    <div class="burger" onclick="toggleMenu()" aria-label="Menu">☰</div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu">
+      <a href="#services" data-i18n="services">Послуги</a>
+      <a href="#booking" data-i18n="booking">Резервація</a>
+      <a href="#contact" data-i18n="contact">Контакти</a>
+      <a href="#about" data-i18n="about">Про себе</a>
+
+      <div class="menu-section">
+        <span class="menu-label" data-i18n="language">Мова</span>
+        <div class="lang-switch">
+          <button onclick="setLang('ua')" data-lang="ua" aria-label="Українська"><img src="https://flagcdn.com/w20/ua.png" /></button>
+          <button onclick="setLang('pl')" data-lang="pl" aria-label="Polski"><img src="https://flagcdn.com/w20/pl.png" /></button>
+          <button onclick="setLang('en')" data-lang="en" aria-label="English"><img src="https://flagcdn.com/w20/gb.png" /></button>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <span class="menu-label" data-i18n="theme">Тема</span>
+        <div class="theme-toggle">
+          <span>🌙</span>
+          <label class="switch">
+            <input type="checkbox" id="themeToggle" />
+            <span class="slider"></span>
+          </label>
+          <span>☀️</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Logout Button -->
+    <button id="logoutBtn" onclick="logout()">Вийти</button>
+    <div class="hero-header">
+      <header class="header">
+        <div class="logo">
+          <img src="https://www.image2url.com/r2/default/images/1777627508710-dad122da-6f02-4997-bbab-5b240ae0b6d3.png" alt="Logo" />
+        </div>
+      </header>
+
+      <div class="nav-center">
+        <a href="#hero" class="active">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#gallery-preview">GALLERY</a>
+        <a href="#contact">CONTACT</a>
+        <a href="#reviews">REVIEWS</a>
+      </div>
+    </div>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-light-left"></div>
+      <div class="hero-dust"></div>
+
+      <div class="hero-content">
+        <!-- Верхній текст -->
+        <div class="hero-top">
+          MAKEUP ARTIST
+          <span class="diamond">✦</span>
+        </div>
+
+        <!-- Головний заголовок -->
+        <h1 class="hero-title">PODLENS<span class="fancy-k">K</span>IH</h1>
+
+        <!-- Підпис -->
+        <div class="hero-script">Enhancing your natural beauty</div>
+
+        <!-- Локація -->
+        <div class="hero-location">KATOWICE, POLAND</div>
+
+        <!-- Кнопка -->
+        <a href="#booking" class="hero-btn">
+          <span>✦ BOOK NOW</span>
+        </a>
+
+        <!-- Нижні теги -->
+        <div class="hero-tags">
+          <span>Bridal Makeup</span>
+          <span>Editorial Looks</span>
+          <span>Special Occasions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desktop Nav -->
+    <nav>
+      <a href="#services" data-i18n="services">Послуги</a>
+      <a href="#booking" data-i18n="booking">Резервація</a>
+      <a href="#contact" data-i18n="contact">Контакти</a>
+      <a href="#about" data-i18n="about">Про себе</a>
+    </nav>
+
+    <!-- About -->
+    <section id="about">
+      <div class="about-split">
+        <div class="about-left">
+          <div class="about-number">01</div>
+          <h2 data-i18n="about">Про мене</h2>
+          <p data-i18n="about1"></p>
+          <p data-i18n="about2"></p>
+          <p data-i18n="about3"></p>
+          <p class="about-script" data-i18n="about4"></p>
+          <a href="#booking" class="about-btn" data-i18n="bookBtn">ЗАБРОНЮВАТИ →</a>
+        </div>
+        <div class="about-right">
+          <img
+            src="https://www.image2url.com/r2/default/images/1776193225035-4d38bac9-235c-4445-aa9e-95e17957a689.jpg"
+            alt="Anna Rakhno"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h2 data-i18n="services">Послуги</h2>
+      <div class="services">
+        <div class="card service" onclick="selectService(1)">
+          <h3>Makeup</h3>
+          <p data-duration="60">60 хв</p>
+          <div class="price">150 zł</div>
+        </div>
+        <div class="card service" onclick="selectService(2)">
+          <h3>Hair</h3>
+          <p data-duration="120">120 хв</p>
+          <div class="price">200 zł</div>
+        </div>
+        <div class="card service" onclick="selectService(3)">
+          <h3>Brows</h3>
+          <p data-duration="30">30 хв</p>
+          <div class="price">80 zł</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section id="gallery-preview">
+      <h2>
+        <span data-i18n="gallery">My works</span>
+      </h2>
+      <div class="gallery-slider">
+        <button class="slider-btn prev" aria-label="Previous">‹</button>
+        <div class="slider-wrapper">
+          <div class="slider-track"></div>
+        </div>
+        <button class="slider-btn next" aria-label="Next">›</button>
+      </div>
+      <a href="gallery.html" class="gallery-btn">
+        <span class="star">✦</span>
+        View full gallery
+        <span>→</span>
+      </a>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+      <img id="lightbox-img" alt="Lightbox image" />
+    </div>
+
+    <!-- Booking -->
+    <section id="booking">
+      <h2 data-i18n="booking">Резервація</h2>
+
+      <form id="bookingForm" class="booking-form form-wrapper">
+        <input id="name" data-placeholder="fullName" required />
+
+        <input type="email" id="email" placeholder="Email" required />
+
+        <input type="tel" id="phone" data-placeholder="phone" required />
+
+        <select id="serviceId">
+          <option value="1">Makeup — 150 zł</option>
+          <option value="2">Hair — 200 zł</option>
+          <option value="3">Brows — 80 zł</option>
+        </select>
+
+        <input type="text" id="date" placeholder="Оберіть дату" required readonly />
+
+        <div id="timeSlots" class="slots"></div>
+
+        <button type="submit" data-i18n="book"></button>
+      </form>
+
+      <div id="adminPanel" style="display: none">
+        <h3>Адмін панель</h3>
+        <button onclick="loadBookings()">Оновити</button>
+        <div id="bookingsList"></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="lux-contact">
+      <div class="lux-shell">
+        <div class="lux-left">
+          <div class="monogram-wrap">
+            <span>✦</span>
+            <div class="monogram">AR</div>
+            <span>✦</span>
+          </div>
+
+          <div class="micro-title">PRIVATE MAKEUP ATELIER</div>
+
+          <h2 class="lux-title">
+            <span data-i18n="contactTitle">Contact</span>
+          </h2>
+
+          <p class="lux-sub">Bridal & Editorial Makeup Studio in Katowice</p>
+
+          <div class="divider"></div>
+
+          <div class="lux-item">
+            <div class="lux-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+
+            <a href="tel:+48795869071" class="contact-link"> +48 795 869 071 </a>
+          </div>
+
+          <div class="lux-item">
+            <div class="lux-icon"><i class="fas fa-envelope"></i></div>
+            <a href="mailto:podlenskih440@gmail.com" class="contact-link"> podlenskih440@gmail.com </a>
+          </div>
+
+          <div class="lux-item">
+            <div class="lux-icon">
+              <i class="fas fa-location-dot"></i>
+            </div>
+
+            <a href="https://maps.google.com/?q=Adama+Mickiewicza+18+Katowice" target="_blank" class="contact-link">
+              Adama Mickiewicza 18<br />
+              40-092 Katowice, Poland
+            </a>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="social-lux">
+            <a href="https://instagram.com/a.podlenskih.mua" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://wa.me/48795869071?text=Hello%20I’d%20like%20to%20book%20an%20appointment%20✨" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://web.telegram.org/k/#@AnnaPodlenskih" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
+
+          <div class="hours">🕒 Mon–Sun • 09:00 — 18:00</div>
+
+          <div class="script-note">By appointment only.</div>
+
+          <p class="small-note">
+            Private appointments only.<br />
+            Walk-ins unavailable.
+          </p>
+        </div>
+
+        <div class="lux-map">
+          <div class="map-badge">
+            ✦ PRIVATE STUDIO <br />
+            <em>By Appointment Only</em>
+          </div>
+
+          <iframe
+            src="https://maps.google.com/maps?q=Adama%20Mickiewicza%2018%20Katowice&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+
+      <div class="lux-footer">LUXURY EXPERIENCE • TIMELESS BEAUTY</div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <h2 data-i18n="reviewsTitle">Відгуки клієнтів</h2>
+
+      <div class="reviews-summary">
+        <div class="avg-rating">
+          <span id="avgRating">5.0</span>
+          <div class="stars" id="avgStars">★★★★★</div>
+          <span>
+            <span data-i18n="basedOn">на основі</span>
+            <span id="reviewCount">0</span>
+            <span data-i18n="reviews">відгуків</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="reviews" id="reviewsContainer"></div>
+
+      <form id="reviewForm" class="review-form form-wrapper">
+        <input id="reviewName" data-placeholder="yourName" placeholder="Ваше ім'я" required />
+        <div class="rating-select" id="ratingSelect">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <textarea id="reviewText" data-placeholder="yourReview" placeholder="Ваш відгук..." required></textarea>
+        <button type="submit" data-i18n="leaveReview">Залишити відгук</button>
+      </form>
+    </section>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Loader -->
+    <div id="loader" class="loader"></div>
+
+    <!-- Menu Backdrop -->
+    <div id="menuBackdrop"></div>
+
+    <!-- Admin Link -->
+    <!--<a href="login.html" class="admin-btn">Admin</a>-->
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

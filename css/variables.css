@@ -1,0 +1,28 @@
+:root {
+    /* Кольори */
+    --bg-light: #f9f6f2;
+    --bg-dark: #0b0b0b;
+    --card-light: #ffffff;
+    --card-dark: rgba(255, 255, 255, 0.04);
+    --gold: #c59d5f;
+    --gold-soft: #e0c48c;
+    --text-light: #2c2c2c;
+    --text-dark: #eeeeee;
+    --border-light: rgba(197, 157, 95, 0.15);
+    --border-dark: rgba(197, 157, 95, 0.18);
+
+    /* Тіні */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --shadow-gold: 0 20px 60px rgba(197, 157, 95, 0.18);
+
+    /* Розміри */
+    --max-width: 1100px;
+    --border-radius: 20px;
+    --border-radius-sm: 12px;
+    --border-radius-lg: 30px;
+
+    /* Переходи */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.4s ease;
+}

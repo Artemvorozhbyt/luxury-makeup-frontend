@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c59d5f" />
+    <title>Gallery | Anna Rakhno</title>
+
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <a
+      href="index.html"
+      class="back-btn"
+      style="
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+      "
+      >← Back</a
+    >
+
+    <h1 style="text-align: center; padding: 80px 20px 40px; color: var(--gold); font-family: &quot;Playfair Display&quot;, serif">My Works</h1>
+
+    <div class="gallery" id="galleryGrid"></div>
+
+    <div id="lightbox">
+      <img id="lightbox-img" alt="Lightbox image" />
+    </div>
+
+    <script type="module">
+      import { galleryImages } from "./js/config.js";
+      import { initLightbox } from "./js/gallery.js";
+
+      // Populate gallery
+      const grid = document.getElementById("galleryGrid");
+      galleryImages.forEach((src) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Makeup work";
+        img.loading = "lazy";
+        grid.appendChild(img);
+      });
+
+      // Init lightbox
+      initLightbox();
+    </script>
+  </body>
+</html>
