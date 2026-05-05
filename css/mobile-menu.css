@@ -143,3 +143,23 @@ body.dark .menu-label {
 body.dark .menu-section {
     border-top: 1px solid rgba(255, 255, 255, .12);
 }
+@media (max-width: 768px) {
+
+    .burger,
+    #mobileMenu,
+    #menuBackdrop,
+    nav:not(#mobileMenu) {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(0, 0, 0, 0.75) !important;
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+
+    .card:hover,
+    .review:hover,
+    .gallery img:hover,
+    .slider-track img:hover {
+        transform: none !important;
+    }
+}
